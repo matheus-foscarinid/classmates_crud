@@ -4,9 +4,10 @@ import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
 import About from '../views/About.vue';
 
-import Classmates from '../views/Classmates.vue';
-import Classmate from '../views/Classmate.vue';
-import EditClassmate from '../views/EditClassmate.vue';
+import Classmates from '../views/classmate/Classmates.vue';
+import Classmate from '../views/classmate/Classmate.vue';
+import ClassmateEdit from '../views/classmate/ClassmateEdit.vue';
+import ClassmateCreate from '../views/classmate/ClassmateCreate.vue';
 
 Vue.use(VueRouter);
 
@@ -27,6 +28,11 @@ const routes = [
     component: Classmates,
   },
   {
+    path: '/classmates/create',
+    name: 'classmates',
+    component: ClassmateCreate,
+  },
+  {
     path: '/classmates/:id',
     name: 'view-classmate',
     component: Classmate,
@@ -34,7 +40,7 @@ const routes = [
   {
     path: '/classmates/:id/edit',
     name: 'edit-classmate',
-    component: EditClassmate,
+    component: ClassmateEdit,
   },
 ];
 
