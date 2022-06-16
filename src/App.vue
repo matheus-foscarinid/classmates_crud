@@ -1,32 +1,34 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div id="nav" class="nav bg-dark justify-content-center">
+      <div class="nav-item">
+        <router-link
+          to="/"
+          class="nav-link"
+          :class="$router.currentRoute.path === '/' ? 'text-light' : 'text-muted'"
+        >
+          Home
+        </router-link>
+      </div>
+      <div class="nav-item">
+        <router-link
+          to="/about"
+          class="nav-link"
+          :class="$router.currentRoute.path === '/about' ? 'text-light' : 'text-muted'"
+        >
+          Sobre
+        </router-link>
+      </div>
+      <div class="nav-item">
+        <router-link
+          to="/classmates"
+          class="nav-link"
+          :class="$router.currentRoute.path === '/classmates' ? 'text-light' : 'text-muted'"
+        >
+          Colegas
+        </router-link>
+      </div>
     </div>
     <router-view/>
   </div>
 </template>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
