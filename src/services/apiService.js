@@ -12,7 +12,7 @@ const api = axios.create({
 // eslint-disable-next-line
 export const postRequest = async (url, data) => {
   const response = await api.post(url, {
-    data,
+    ...data,
   });
 
   return response.data;
@@ -20,6 +20,15 @@ export const postRequest = async (url, data) => {
 
 export const getRequest = async (url) => {
   const response = await api.get(url);
+  return response.data;
+};
 
+export const deleteRequest = async (url) => {
+  const response = await api.delete(url);
+  return response.data;
+};
+
+export const putRequest = async (url) => {
+  const response = await api.put(url);
   return response.data;
 };
