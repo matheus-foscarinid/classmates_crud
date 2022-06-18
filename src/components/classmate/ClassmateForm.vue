@@ -50,27 +50,31 @@
 <script>
 export default {
   name: 'ClassmateForm',
+  data() {
+    return {
+      classmate: {},
+    };
+  },
   props: {
     initialValues: {
       type: Object,
       required: false
     }
   },
-  data() {
-    return {
-      classmate: {},
-    };
-  },
-  mounted() {
-    if (this.initialValues) {
-      this.classmate = { ...this.initialValues };
+  watch: {
+    initialValues: {
+      handler() {
+        console.log('Teste');
+        this.classmate = { ...this.initialValues };
+      },
+      deep: true,
     }
   },
   methods: {
     submitForm() {
       this.$emit('onFormSubmit', this.classmate);
 
-      // Reseta o colega :)
+      // Reseta o colega
       this.classmate = {};
     }
   }

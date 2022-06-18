@@ -15,6 +15,7 @@
 
       <button 
         class="btn btn-lg btn-info mt-3 mr-2"
+        @click="openEditClassmate"
       >
         Editar Colega
       </button>
@@ -29,7 +30,7 @@
 </template>
 
 <script>
-import { getRequest } from '@/services/apiService';
+import { getRequest, deleteRequest } from '@/services/apiService';
 import moment from 'moment';
 
 export default {
@@ -53,6 +54,10 @@ export default {
   methods: {
     async getClassmateInfo() {
       this.classmate = await getRequest(`classmates/${this.$route.params.id}`);
+    },
+    openEditClassmate() {
+      this.$router.push(`/classmates/${this.classmate.id}/edit`);
+    },
     }
   }
 };
