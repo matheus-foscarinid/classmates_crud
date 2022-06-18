@@ -5,7 +5,7 @@
       <ClassmateForm 
         :initial-values="classmate"
         @onFormSubmit="editClassmate"
-        />
+      />
     </div>
   </div>
 </template>
@@ -22,9 +22,11 @@ export default {
       classmate: {},
     };
   },
+
   async mounted() {
     this.classmate = await getClassmate(this.$route.params.id);
   },
+
   methods: {
     async editClassmate(classmateInfos) {
       await editClassmate(classmateInfos);
