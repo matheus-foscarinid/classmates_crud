@@ -8,15 +8,15 @@
 </template>
 
 <script>
+import { createClassmate } from '@/services/classmate.service';
 import ClassmateForm from '@/components/classmate/ClassmateForm.vue';
-import { postRequest } from '@/services/apiService';
 
 export default {
   name: 'ClassmateCreate',
   components: { ClassmateForm },
   methods: {
     async createClassmate(classmateInfos) {
-      await postRequest('/classmates', { classmate: classmateInfos });
+      await createClassmate(classmateInfos);
       this.$router.push('/classmates');
     },
   }

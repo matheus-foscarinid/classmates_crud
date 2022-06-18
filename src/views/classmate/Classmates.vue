@@ -31,7 +31,7 @@
               <td>
                 <button 
                   class="btn btn-sm btn-light mr-2" 
-                  @click="showClassmate(classmate.id)"
+                  @click="openViewClassmate(classmate.id)"
                 >
                   Ver
                 </button>
@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import { getRequest, deleteRequest } from '@/services/apiService';
+import { getClassmates, deleteClassmate } from '@/services/classmate.service';
 
 export default {
   name: 'Classmates',
@@ -67,17 +67,17 @@ export default {
 
   methods: {
     async getClassmates() {
-      this.classmates = await getRequest('/classmates');
+      this.classmates = await getClassmates();
     },
     async deleteClassmate(classmateId) {
-      await deleteRequest(`/classmates/${classmateId}`);
+      await deleteClassmate(classmateId);
       this.getClassmates();
     },
 
     openCreateClassmate() {
       this.$router.push('/classmates/create');
     },
-    showClassmate(classmateId) {
+    openViewClassmate(classmateId) {
       this.$router.push(`/classmates/${classmateId}`);
     },
   },

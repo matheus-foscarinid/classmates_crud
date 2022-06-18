@@ -11,8 +11,8 @@
 </template>
 
 <script>
+import { getClassmate, editClassmate } from '@/services/classmate.service';
 import ClassmateForm from '@/components/classmate/ClassmateForm.vue';
-import { getRequest, putRequest } from '@/services/apiService';
 
 export default {
   name: 'ClassmateCreate',
@@ -22,15 +22,12 @@ export default {
       classmate: {},
     };
   },
-  mounted() {
-    this.getClassmateInfo();
+  async mounted() {
+    this.classmate = await getClassmate(this.$route.params.id);
   },
   methods: {
-    async getClassmateInfo() {
-      this.classmate = await getRequest(`classmates/${this.$route.params.id}`);
-    },
     async editClassmate(classmateInfos) {
-      await putRequest(`/classmates/${classmateInfos.id}`, { classmate: classmateInfos });
+      await editClassmate(classmateInfos);
       this.$router.push('/classmates');
     },
   }
