@@ -22,6 +22,7 @@
 
       <button 
         class="btn btn-lg btn-danger mt-3 mr-2"
+        @click="deleteClassmate"
       >
         Excluir Colega
       </button>
@@ -58,6 +59,9 @@ export default {
     openEditClassmate() {
       this.$router.push(`/classmates/${this.classmate.id}/edit`);
     },
+    async deleteClassmate() {
+      await deleteRequest(`classmates/${this.$route.params.id}`);
+      this.$router.push('/classmates');
     }
   }
 };
