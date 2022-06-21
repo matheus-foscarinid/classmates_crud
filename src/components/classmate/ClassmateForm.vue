@@ -42,7 +42,8 @@
       type="submit" 
       class="btn btn-primary mt-3"
     >
-      Enviar
+      <i class="fa-solid fa-paper-plane"></i>
+      {{ submitLabel }}
     </button>
   </form>
 </template>
@@ -59,6 +60,10 @@ export default {
     initialValues: {
       type: Object,
       required: false
+    },
+    submitLabel: {
+      type: String,
+      default: ''
     }
   },
   watch: {
