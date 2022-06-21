@@ -1,13 +1,17 @@
 <template>
   <div class="home">
     <div class="jumbotron m-3">
-      <h1 class="display-4">Lista de Colegas!</h1>
+      <h1 class="display-4">
+        Lista de Colegas! 
+        <small style="font-size: 25px; color: #777">(total {{ classmates.length }})</small>
+      </h1>
       
       <div class="mt-5">
         <button 
           class="btn btn btn-success"
           @click="openCreateClassmate()"
         >
+          <i class="fa-solid fa-plus"></i>
           Criar Colega
         </button>
         
@@ -33,6 +37,7 @@
                   class="btn btn-sm btn-light mr-2" 
                   @click="openViewClassmate(classmate.id)"
                 >
+                  <i class="fa-solid fa-eye"></i>
                   Ver
                 </button>
 
@@ -40,6 +45,7 @@
                   class="btn btn-sm btn-danger" 
                   @click="deleteClassmate(classmate.id)"
                 >
+                  <i class="fa-solid fa-trash"></i>
                   Excluir
                 </button>
               </td>
