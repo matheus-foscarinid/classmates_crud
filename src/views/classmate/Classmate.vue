@@ -17,6 +17,7 @@
         class="btn btn-lg btn-info mr-2"
         @click="openEditClassmate"
       >
+        <i class="fa-solid fa-pen"></i>
         Editar Colega
       </button>
 
@@ -24,6 +25,7 @@
         class="btn btn-lg btn-danger"
         @click="deleteClassmate"
       >
+        <i class="fa-solid fa-trash"></i>
         Excluir Colega
       </button>
     </div>
