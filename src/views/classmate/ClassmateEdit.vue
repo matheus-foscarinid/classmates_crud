@@ -4,6 +4,7 @@
       <h1 class="my-3">Editar o Colega {{ classmate.name }}</h1>
       <ClassmateForm 
         :initial-values="classmate"
+        submit-label="Editar"
         @onFormSubmit="editClassmate"
       />
     </div>

@@ -2,7 +2,10 @@
   <div class="classmate-create">
     <div class="jumbotron m-3">
       <h1 class="my-3">Criar um novo Colega</h1>
-      <ClassmateForm @onFormSubmit="createClassmate"/>
+      <ClassmateForm 
+        submit-label="Criar"
+        @onFormSubmit="createClassmate"
+      />
     </div>
   </div>
 </template>
