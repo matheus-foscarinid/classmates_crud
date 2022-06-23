@@ -69,7 +69,6 @@ export default {
   watch: {
     initialValues: {
       handler() {
-        console.log('Teste');
         this.classmate = { ...this.initialValues };
       },
       deep: true,
